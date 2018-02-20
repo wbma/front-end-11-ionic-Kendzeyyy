@@ -46,7 +46,11 @@ export class HomePage {
 
 
   login(){
+    if (localStorage.getItem('token') !==null){
 
+    }else {
+      this.navCtrl.setRoot(LoginPage);
+    }
   }
 
   logout(){
