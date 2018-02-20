@@ -6,25 +6,46 @@ import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
+import {LoginPage} from '../pages/login/login';
+import {ProfilePage} from '../pages/profile/profile';
+import {UploadPage} from '../pages/upload/upload';
+import {RegisterPage} from '../pages/register/register';
+import {ThumbnailPipe} from '../pipes/thumbnail/thumbnail';
+import {MediaService} from '../providers/media/media';
+import {HttpClientModule} from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
     MyApp,
-    HomePage
+    HomePage,
+    LoginPage,
+    ProfilePage,
+    RegisterPage,
+    UploadPage,
+    ThumbnailPipe,
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage
+    HomePage,
+    LoginPage,
+    ProfilePage,
+    RegisterPage,
+    UploadPage,
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    MediaService,
+    HttpClientModule,
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+
   ]
 })
 export class AppModule {}
